@@ -1,0 +1,281 @@
+:root {
+  --bg: #f6f7fb;
+  --text: #111827;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --recipe-bg: #fafafa;
+  --border: #e5e7eb;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --danger: #dc2626;
+  --danger-bg: #fee2e2;
+}
+ 
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+ 
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+}
+ 
+/* ---------- Header ---------- */
+header {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  align-items: center;
+  padding: 10px 16px;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+ 
+/* Logo dans petit cadre arrondi */
+header .logo {
+  grid-row: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--card);
+}
+ 
+header h1 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+ 
+header p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+ 
+/* ---------- Conteneur principal ----------*/
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 12px;
+  align-items: stretch;
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 14px 16px;
+}
+ 
+/* ---------- Cartes principales ---------- */
+main > section {
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+ 
+/* ---------- Section recette (gauche) ---------- */
+main > section:first-child h2 {
+  margin: 0 0 14px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+ 
+/* Zone recette */
+main > section:first-child > div {
+  padding: 14px;
+  background: var(--recipe-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+ 
+main > section:first-child h3 {
+  margin: 20px 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+ 
+main > section:first-child h3:first-child {
+  margin-top: 0;
+}
+ 
+main > section:first-child ul,
+main > section:first-child ol {
+  margin: 0;
+  padding-left: 40px;
+  font-size: 14px;
+}
+ 
+/* ---------- Section commentaires (droite) ---------- */
+main > section:last-child h2 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  font-weight: 700;
+}
+ 
+main > section:last-child > h3 {
+  margin: 20px 0 12px;
+  font-size: 20px;
+  font-weight: 700;
+}
+ 
+/* ---------- Formulaire ---------- */
+form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+}
+ 
+form br {
+  display: none;
+}
+ 
+/* Champs de formulaire */
+form input[type="text"],
+form textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+}
+ 
+form textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+ 
+form input[type="text"]:focus,
+form textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+ 
+form input::placeholder,
+form textarea::placeholder {
+  color: #9ca3af;
+}
+ 
+/* Textes d'aide "Minimum X caractères" */
+form p {
+  margin: 6px 0 14px;
+  font-size: 14px;
+  color: var(--muted);
+}
+ 
+/* Bouton Publier */
+form input[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+ 
+form input[type="submit"]:hover {
+  background: var(--primary-hover);
+}
+ 
+/* ---------- Message d'erreur ---------- */
+.error-message {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--danger);
+  background: var(--danger-bg);
+  border-radius: 12px;
+}
+ 
+/* ---------- Commentaires ---------- */
+.comment {
+  margin-bottom: 12px;
+  padding: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+ 
+.comment h4,
+.comment .comment-author {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+ 
+.comment p,
+.comment .comment-text {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+ 
+/* Bouton Supprimer */
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--danger);
+  background: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+ 
+.delete-btn:hover {
+  background: var(--danger-bg);
+}
+ 
+/* ---------- Footer ---------- */
+footer {
+  padding: 14px;
+  text-align: center;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+}
+ 
+footer p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+ 
+/* ---------- Responsive ----------*/
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+ 
